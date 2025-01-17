@@ -1,7 +1,42 @@
-@startuml hanon
-
-participant ui 
+@startuml Hanon 
+participant client 
 participant server 
+queue midistream
 participant piano 
+
+=== phase 1 ===
+
+
+server -> client : [pianos]
+client -> server : piano 
+server -> piano : start connection 
+activate piano 
+server -> midistream ** : create
+midistream -> server : [midi]
+midistream -> client : [midi]
+activate client
+
+=== phase 2 ===
+
+server -> client : [excersizes]
+client -> server : excersize
+note right 
+  name
+  bpm
+end note
+
+activate server
+midistream -> server : [midi]
+server -> client : results
+note left
+  note accuracy 
+  tempo accuracy 
+  attack avg 
+  attack dev
+  sustain avg 
+  sustain dev
+end note 
+
+
 
 @enduml
