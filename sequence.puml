@@ -1,0 +1,7 @@
+@startuml hanon
+
+participant ui 
+participant server 
+participant piano 
+
+@enduml
