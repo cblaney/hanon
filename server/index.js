@@ -5,6 +5,7 @@ const webserver = express()
   )
   .listen(3000, () => console.log(`Listening on ${3000}`))
 
+/*
 const { WebSocketServer } = require('ws')
 const sockserver = new WebSocketServer({ port: 2000 })
 sockserver.on('connection', ws => {
@@ -21,3 +22,4 @@ sockserver.on('connection', ws => {
     console.log('websocket error')
   }
 })
+*/

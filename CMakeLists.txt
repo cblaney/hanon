@@ -5,9 +5,14 @@ set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 
 project(server VERSION 0.1.0 LANGUAGES C CXX)
 
-include_directories(inc)
+find_package(Boost)
+
+include_directories(inc
+                    ${Boost_INCLUDE_DIRS}
+                    )
 link_directories(src)
-add_executable(server 
+add_executable(hanon
     src/main.cpp
-    src/server.cpp
 )
+target_link_libraries(hanon ${Boost_LIBRARIES})
+
